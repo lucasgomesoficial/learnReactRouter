@@ -12,8 +12,10 @@ export function usePickCep() {
 
   const linkApi = `https://viacep.com.br/ws/${cookies.cep}/json/`;
 
+  const newCep = cookies.cep.toString()
+
   useEffect(() => {
-    const dev = developers.filter(({ cep }) => cep === cookies.cep.toString());
+    const dev = developers.filter(({ cep }) => cep === newCep);
 
     fetch(linkApi)
       .then((response) => {
